@@ -40,7 +40,7 @@
 ### Cerrar Sesión del Administrador:
 • Cuando hayas completado las tareas de administración, cierra sesión para volver al modo cliente.
   
-#### `<link>` a mi app : https://movie-app-cdlf.onrender.com/usuario/login
+#### `<link>`  a mi app :  https://movie-app-cdlf.onrender.com/usuario/login
 
 ### Contribuciones
 ¡Agradesco cualquier contribución para mejorar My Movie App! Si encuentras problemas o tienes ideas para nuevas características, no dudes en informarme

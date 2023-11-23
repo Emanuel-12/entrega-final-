@@ -1,0 +1,29 @@
+{{> navAdmin}}
+<style>
+    .padre{
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        margin: auto;
+    }
+</style>
+ <h1>{{nombre}}</h1>
+
+<div class="card padre" style="width: 18rem;">
+  <img class="card-img-top" src="{{serie.imagen.secure_url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{serie.nombre}}</h5>
+    <p class="card-text">{{serie.descripcion}}</p>
+    <form action="/series/{{serie._id}}" method="post">
+<a href="/series/update/{{serie._id}}" class="btn btn-primary">Actualizar</a>
+<button type="submit" class="btn btn-danger m-1">Eliminar</button>
+
+
+</form>
+
+  </div>
+</div>
+
+
+
+{{> footerAdmin}}

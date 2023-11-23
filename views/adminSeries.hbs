@@ -1,0 +1,39 @@
+{{> navAdmin}}
+
+<style>
+    .gridTemplate {
+        display: grid;
+        grid-template-columns:repeat(auto-fit,minmax(200px, 1fr));
+        max-width: 90%;
+        margin: auto;
+        gap: 1rem;
+    }
+    .img-container{
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+    .img-container>img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+
+<h1>Series</h1>
+  <ul class="element">
+        {{#each series}}
+        <li>
+            <div class="caja">
+                <img src="{{imagen.secure_url}}"
+                    alt="{{nombre}}">
+                    <a href="/series/update/{{_id}}"class="btn btn-primary">Actualizar</a>
+                <figcaption> {{nombre}}</figcaption>
+
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+{{> footerAdmin}}

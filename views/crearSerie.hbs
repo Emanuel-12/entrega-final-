@@ -1,0 +1,22 @@
+{{> navAdmin}}
+<h2>Formulario de crear Serie</h2>
+<form action="/series" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre" >
+          </div>
+      <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input class="form-control" name="descripcion" id="descripcion" rows="3"  placeholder="Ingrese la descripción">
+          </div>
+      <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <input type="text" class="form-control" name="categoria"  id="categoria" placeholder="Ingrese la categoría">
+          </div>
+      <div class="form-group">
+            <label for="imagen">Imagen</label>
+            <input type="file" class="form-control-file" id="imagen" name="image">
+          </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{{> footerSubir}}

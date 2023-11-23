@@ -1,0 +1,29 @@
+{{> navAdmin}}
+<style>
+    .padre{
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        margin: auto;
+    }
+</style>
+
+<h1>{{nombre}}</h1>
+
+
+<div class="card padre" style="width: 18rem;">
+  <img class="card-img-top" src="{{pelicula.imagen.secure_url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{pelicula.nombre}}</h5>
+    <p class="card-text">{{pelicula.descripcion}}</p>
+    <form action="/peliculas/{{pelicula._id}}" method="post">
+<a href="/peliculas/update/{{pelicula._id}}" class="btn btn-primary">Actualizar</a>
+<button type="submit" class="btn btn-danger m-1">Eliminar</button>
+
+
+</form>
+
+  </div>
+</div>
+
+{{> footerAdmin}}

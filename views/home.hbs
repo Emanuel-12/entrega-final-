@@ -1,0 +1,42 @@
+{{> navegacion}}
+
+
+   <h1><a href="./peliculas" class="btn btn-info text-black fs-4">Ver peliculas</a></h1> 
+<section >
+    <ul class="element">
+        {{#each peliculas}}
+        <li>
+            <div class="caja">
+                <img src="{{imagen.secure_url}}"
+                    alt="{{nombre}}">
+                    <a href="/peliculas//{{_id}}" class="btn btn-primary">Ir a Pelicula</a>
+                <figcaption> {{nombre}}</figcaption>
+
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</section>  
+
+    <h1><a href="./series" class="btn btn-info text-black fs-4" >Ver Series</a></h1> 
+<section >
+    <ul class="element">
+        {{#each series}}
+        <li>
+            <div class="caja">
+                <img src="{{imagen.secure_url}}"
+                    alt="{{nombre}}">
+                    <a href="/series//{{_id}}"class="btn btn-primary" >Ir a Serie</a>
+                <figcaption> {{nombre}}</figcaption>
+
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</section>  
+
+
+
+
+
+{{> footer}}

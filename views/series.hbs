@@ -1,0 +1,19 @@
+{{> navegacion}}
+
+<h1>Series</h1>
+  <ul class="element">
+        {{#each series}}
+        <li>
+            <div class="caja">
+                <img src="{{imagen.secure_url}}"
+                    alt="{{nombre}}">
+                    <a href="/series//{{_id}}"class="btn btn-primary" >Ver mas</a>
+                <figcaption> {{nombre}}</figcaption>
+
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+
+{{> footer}}

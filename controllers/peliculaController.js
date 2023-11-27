@@ -25,7 +25,7 @@ const getPeliculaById = async (req, res) => {
         if (!pelicula) {
             return res.status(404).render('error',{ error: "pelicula no encontrado" });
         }
-        // console.log(pelicula)
+     
         res.render('peliculaId', {
             pelicula
         })
@@ -35,9 +35,9 @@ const getPeliculaById = async (req, res) => {
 }
 
 const createPelicula = async (req, res) => {
-    // console.log(req.body+"entrando a create")
+  
     try {
-        // console.log(req.body)
+        
         const pelicula1 = await Peliculas.findOne({ nombre: req.body.nombre});
         if (pelicula1) {
             console.log(pelicula1)
@@ -50,7 +50,7 @@ const createPelicula = async (req, res) => {
         const peliculaNueva = new Peliculas(req.body);
         console.log(req.files.image)
         if (req.files?.image) {
-            // console.log(req.files.image)
+            
             const tempFilePath = req.files.image.tempFilePath
             const originalName = req.files.image.name
             const fileExtencion = originalName.split('.').pop()
@@ -59,13 +59,13 @@ const createPelicula = async (req, res) => {
                 public_id: peliImg.public_id,
                 secure_url: peliImg.secure_url
             }
-            const newTempFilePath = `${req.files.image.tempFilePath}.${fileExtencion}`
-            await fs.rename(tempFilePath, newTempFilePath, (err) => {
-                if (err) {
-                    console.log(err)
-                }
-            })
-            await fs.unlink(req.files.image.tempFilePath);
+            // const newTempFilePath = `${req.files.image.tempFilePath}.${fileExtencion}`
+            // await fs.rename(tempFilePath, newTempFilePath, (err) => {
+            //     if (err) {
+            //         console.log(err)
+            //     }
+            // })
+            // await fs.unlink(req.files.image.tempFilePath);
         } else {
             res.render('error',{
                 error:"imagen no cargada"
@@ -73,7 +73,7 @@ const createPelicula = async (req, res) => {
         }
         await peliculaNueva.save();
         const pelicula = await Peliculas.findById(peliculaNueva._id).lean();
-        // console.log(pelicula1)
+    
         
         res.render('peliculaIdAdmin', {
             pelicula
@@ -87,12 +87,12 @@ const createPelicula = async (req, res) => {
 
 
 const deletePelicula = async (req, res) => {
-    // console.log("antes del try",req.params.id);
+    
     try {
-        // console.log("entrando al try");
+        
         const peliculaId = req.params.id;
         const pelicula = await Peliculas.findById(peliculaId).lean();
-        // console.log(pelicula);
+        
         if (req.files?.image) {
             await fs.unlink(req.files.image.tempFilePath);
         }
@@ -131,7 +131,7 @@ const viewUpdatePelicula = async (req, res) => {
 
 
 const updatePelicula = async (req, res) => {
-    // console.log('entre a update')
+    
     try {
         const peliculaId = req.params.id;
         const peliculaActualizada = await Peliculas.findById(peliculaId, req.body);
@@ -173,7 +173,7 @@ const viewUpdateHomePelicula = async (req, res) => {
         }
         return res.status(404).render('errorAdmin',{ error: "pelicula no encontrado" });
     }
-    // console.log(pelicula)
+ 
     res.render('homeEdit', {
         pelicula
     })

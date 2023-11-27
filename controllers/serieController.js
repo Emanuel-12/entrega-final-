@@ -53,13 +53,13 @@ const createSerie = async (req, res) => {
                 public_id: serieImg.public_id,
                 secure_url: serieImg.secure_url
             }
-            const newTempFilePath = `${req.files.image.tempFilePath}.${fileExtencion}`
-            await fs.rename(tempFilePath, newTempFilePath, (err) => {
-                if (err) {
+            // const newTempFilePath = `${req.files.image.tempFilePath}.${fileExtencion}`
+            // await fs.rename(tempFilePath, newTempFilePath, (err) => {
+            //     if (err) {
                     
-                }
-            })
-            await fs.unlink(req.files.image.tempFilePath);
+            //     }
+            // })
+            // await fs.unlink(req.files.image.tempFilePath);
         } else {
             res.render('error',{
                 error:"imagen no cargada"

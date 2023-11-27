@@ -7,9 +7,9 @@ const getAllSeries = async (req, res) => {
             await fs.unlink(req.files.image.tempFilePath);
         }
         const series = await Serie.find();
-        res.status(200).json(series);
+        res.status(200).render(series);
     } catch (err) {
-        res.status(500).json({ error: "error al obtener lista de productos" });
+        res.status(500).render('error','error',{ error: "error al obtener lista de productos" });
     }
 }
 
@@ -21,14 +21,14 @@ const getSerieById = async (req, res) => {
         }
         const serie = await Serie.findById(req.params.id).lean();
         if (!serie) {
-            return res.status(404).json({ error: "serie no encontrado" });
+            return res.status(404).render({ error: "serie no encontrado" });
         }
        
         res.render('serieId', {
             serie
         })
     } catch (err) {
-        res.status(500).json({ error: "error al obtener producto" });
+        res.status(500).render({ error: "error al obtener producto" });
     }
 }
 
@@ -107,7 +107,7 @@ const viewUpdateSerie = async (req, res) => {
     try {
         const serie = await Serie.findById(req.params.id).lean();
         if (!serie) {
-            return res.status(404).json({ error: "producto no encontrado" });
+            return res.status(404).render({ error: "producto no encontrado" });
         }
         res.render('actualizarserie', {
             serie

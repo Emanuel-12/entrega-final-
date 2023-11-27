@@ -21,14 +21,14 @@ const getSerieById = async (req, res) => {
         }
         const serie = await Serie.findById(req.params.id).lean();
         if (!serie) {
-            return res.status(404).render({ error: "serie no encontrado" });
+            return res.status(404).render('error',{ error: "serie no encontrado" });
         }
        
         res.render('serieId', {
             serie
         })
     } catch (err) {
-        res.status(500).render({ error: "error al obtener producto" });
+        res.status(500).render('error',{ error: "error al obtener producto" });
     }
 }
 
@@ -71,7 +71,10 @@ const createSerie = async (req, res) => {
             serie
         })
     } catch (err) {
-        res.send(err)
+        console.log(err)
+        res.render('error', {
+            error: err
+        })
     }
 }
 
@@ -107,7 +110,7 @@ const viewUpdateSerie = async (req, res) => {
     try {
         const serie = await Serie.findById(req.params.id).lean();
         if (!serie) {
-            return res.status(404).render({ error: "producto no encontrado" });
+            return res.status(404).render('errorAdmin',{ error: "producto no encontrado" });
         }
         res.render('actualizarserie', {
             serie

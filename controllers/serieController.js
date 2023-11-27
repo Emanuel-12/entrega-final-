@@ -112,7 +112,7 @@ const viewUpdateSerie = async (req, res) => {
         if (!serie) {
             return res.status(404).render('errorAdmin',{ error: "producto no encontrado" });
         }
-        res.render('actualizarserie', {
+        res.render('actualizarSerie', {
             serie
         })
     } catch (err) {

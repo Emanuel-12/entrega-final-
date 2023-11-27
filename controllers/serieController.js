@@ -59,7 +59,7 @@ const createSerie = async (req, res) => {
                     
             //     }
             // })
-            await fs.unlink(req.files.image.tempFilePath);
+            // await fs.unlink(req.files.image.tempFilePath);
         } else {
             res.render('error',{
                 error:"imagen no cargada"

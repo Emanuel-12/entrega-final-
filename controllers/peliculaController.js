@@ -65,7 +65,7 @@ const createPelicula = async (req, res) => {
             //         console.log(err)
             //     }
             // })
-            await fs.unlink(req.files.image.tempFilePath);
+            // await fs.unlink(req.files.image.tempFilePath);
         } else {
             res.render('error',{
                 error:"imagen no cargada"

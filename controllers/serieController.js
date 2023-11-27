@@ -113,7 +113,7 @@ const viewUpdateSerie = async (req, res) => {
             serie
         })
     } catch (err) {
-        res.status(500).json({ error: "error al obtener producto" });
+        res.status(500).render('errorAdmin',{ error: "error al obtener producto" });
     }
 }
 

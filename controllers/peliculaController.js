@@ -79,6 +79,7 @@ const createPelicula = async (req, res) => {
             pelicula
         })
     } catch (err) {
+        console.log(err)
         res.render('error', {
             error: err
         })
